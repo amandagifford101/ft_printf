@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agifford <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/06 16:38:55 by agifford          #+#    #+#             */
+/*   Updated: 2018/08/06 20:24:12 by agifford         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdint.h>
+# include <stdarg.h>
+# include "libft/libft.h"
 
 typedef union
 {
@@ -15,7 +29,7 @@ typedef union
 	void		*v;
 }				t_types;
 
-typedef struct		s_components;
+typedef struct		s_components
 {
 	char 	*fmt;
 	char	*buff;
@@ -64,6 +78,7 @@ enum flags {
 # define ASSIGN_MINUS(X) (X |= minus)
 # define ASSIGN_HASH(X) (X |= hash)
 # define ASSIGN_ZERO(X) (X |= zero)
+# define ASSIGN_SPACE(X) (X |= space)
 # define ASSIGN_H(X) (X |= h)
 # define ASSIGN_HH(X) (X |= hh)
 # define ASSIGN_L(X) (X |= l)
@@ -91,6 +106,7 @@ enum flags {
 # define CHECK_MINUS(X) ((X &= minus) ? (1) : (0))
 # define CHECK_HASH(X) ((X &= hash) ? (1) : (0))
 # define CHECK_ZERO(X) ((X &= zero) ? (1) : (0))
+# define CHECK_SPACE(X) ((X &= space) ? (1) : (0))
 # define CHECK_H(X) ((X &= h) ? (1) : (0))
 # define CHECK_HH(X) ((X &= hh) ? (1) : (0))
 # define CHECK_L(X) ((X &= l) ? (1) : (0))
@@ -112,6 +128,24 @@ enum flags {
 # define CHECK_C(X) ((X &= c)  ? (1) : (0))
 # define CHECK_CC(X) ((X &= cc) ? (1) : (0))
 # define CHECK_PERCENT(X) ((X &= percent) ? (1) : (0))
+
+int		ft_printf(const char *fmt, ...);
+void	main_station(t_components *m);
+void	buff_it(t_components *m);
+void	init(t_components *m, int fd, char *fmt);
+void	arg_out(t_components *m);
+void	print_arg(t_components *m);
+void	assign_flags(t_components *m);
+int		is_digit(int c);
+void	field_width(t_components *m);
+int		is_prec(t_components *m);
+void	get_prec(t_components *m);
+int		is_len_mod(t_components *m);
+void	len_mod(t_components *m);
+void	assign_type(t_components *m);
+void	flag_flipper(t_components *m);
+
+
 
 
 #endif
