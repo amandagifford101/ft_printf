@@ -1,0 +1,66 @@
+Example:
+main()
+{
+	int a,b;
+	float c,d;
+
+	a = 15;
+	b = a/2;
+	printf("%d\n", b);
+	printf("%3d\n", b);
+	printf("03\n", b);
+
+	c = 15.3;
+	d = c / 3;
+	printf(""%3.2f\n", d);
+}
+
+Output of above source:
+
+7
+   7
+007
+5.10
+
+Fourth print statement:
+	Print three positions before the decimal (width) and two positions behind 
+	the decimal (precision);
+	*precision is dominant to width and cancels it digit for digit
+
+Man # Printf Notes:
+
+-(diouxX) int can be converted to signed deciman (d and i), unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X) notation.
+	-'abcdef' are used for x conversions; 'ABCDEF' are used for X conversions;
+
+-(DOU) long int argument is converted to signed decimal, unsigned octal, or unsigned decimal, as if format had been ld, lo, or lu respectively. These conversions are deprecated, and will eventually disappear.
+
+-(C) is wide char
+
+-(c) the int argument is converted to an usigned char, and the resulting char is written.
+	-if (l) mod is used, the wint_t arg shall be converted to a wchar_t, and the (potentially multibyte) sequence representing the single wide char is written, including any shift sequences. If shift seq, shift state is restored to original state after the char.
+
+-(S) is wide char
+
+-(s) expected to be a char * arg, characters from array written up till NULL; if precision is specified, no more than number specified are writeen. If a precision is given, no NULL need be present; if the prec is not specified, or is greater than the size of the array, the array must contain a terminating NUL char.	-if (l), wchar_t * arg is array of wide chars. For each wide char in the string, the (potentially multibyte) sequence representing the wide char is written, including any shift seq. Partial chars are never written. Again, if prec not specified, or is greater than the number of bytest required to render the multibyte rep of the string, the array must contain terminating wide NUL char.
+
+
+Sean's decimalfy pseudo:
+
+static void		format(t_print *p)
+{
+	p->num = ft_atoi_base(integer arg of union of p, 10 (base))
+	p->len = length of p->num;
+	if (precision is greater than legth)
+		set zeroes to prec - len;
+	if (width is greater than lenth plus zeroes)
+		spaces = width - (len + zeroes)
+	if (plus && (!IS_NEG))
+		p->sign = '+'
+	if (plus && zero)
+		spaces--;
+	if (space && !(IS_NEG) && p->spaces == 0)
+		p->spaces ++;
+void	prt_decimalfy(t_print *p)
+{
+	if type is 'D'
+

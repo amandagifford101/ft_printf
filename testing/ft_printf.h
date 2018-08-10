@@ -6,7 +6,7 @@
 /*   By: agifford <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 16:38:55 by agifford          #+#    #+#             */
-/*   Updated: 2018/08/09 21:35:35 by agifford         ###   ########.fr       */
+/*   Updated: 2018/08/08 17:40:22 by agifford         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-
-//add this ABS to libft with ft_itoa_base
-# define ABS(X) (X > 0) ? (X) : (-X)
-# define HEX "0123456789abcdef"
 typedef union
 {
 	char		c;
@@ -47,10 +43,7 @@ typedef struct		s_components
 	int		flags;
 	int		width;
 	int		prec;
-	char	*num;
-	int		spaces;
-	int		len;
-
+	int		str_len; //len of wide char* or char*
 }					t_components;
 
 enum flags {
@@ -141,7 +134,7 @@ enum flags {
 int		ft_printf(const char *fmt, ...);
 void	main_station(t_components *m);
 void	buff_it(t_components *m);
-void	init(t_components *m, int fd, char *fmt);
+void	inits(t_components *m, int fd, char *fmt);
 void	arg_out(t_components *m);
 void	print_arg(t_components *m);
 void	assign_flags(t_components *m);
@@ -153,15 +146,15 @@ int		is_len_mod(t_components *m);
 void	len_mod(t_components *m);
 void	assign_type(t_components *m);
 void	flag_flipper(t_components *m);
-void 	p_octal(t_components *m);
-void 	string_it(t_components *m);
-void 	p_wide_string(t_components *m);
-void	p_pointer(t_components *m);
-void	p_decimal(t_components *m);
-void    p_undecimal(t_components *m);
-void 	p_hex(t_components *m);
-void 	p_char(t_components *m);
-void	sign_sign(t_components *m);
+int 	p_octal(t_components *m);
+int 	string_it(t_components *m);
+int 	p_wide_string(t_components *m);
+int 	p_pointer(t_components *m);
+int 	p_decimal(t_components *m);
+int 	p_undecimal(t_components *m);
+int 	p_hex(t_components *m);
+int 	p_char(t_components *m);
+void	*ft_memset(void	*b, int c, size_t len);
 
 
 
