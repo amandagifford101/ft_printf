@@ -29,7 +29,7 @@ static void	print_spaces(t_components *m)
 {
 	m->spaces = (m->prec >= 0 && m->prec < m->len)
 	 ?	(m->width - m->prec) : (m->width - m->len);
-	while (m->spaces > 0)
+	//while (m->spaces > 0)
 		write(m->fd, " ", m->spaces);
 }
 
