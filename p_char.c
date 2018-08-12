@@ -7,6 +7,18 @@ static void	print_spaces(t_components *m)
 		m->ret = write(1, " ", m->spaces);
 }
 
+void print_bits(int n){
+	for (int i = 31; i > -1; i--){
+		if ((n >> i) & 1){
+			putchar('1');
+		} else {
+			putchar('0');
+		}
+	}
+	putchar('\n');
+}
+
+
 void	p_char(t_components *m)
 {
 	m->arg.c = (char)va_arg(m->args, int);

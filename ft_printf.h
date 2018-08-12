@@ -107,32 +107,32 @@ enum flags {
 # define ASSIGN_PERCENT(X) (X |= percent)
 
 
-# define CHECK_PLUS(X) ((X &= plus) ? (1) : (0))
-# define CHECK_MINUS(X) ((X &= minus) ? (1) : (0))
-# define CHECK_HASH(X) ((X &= hash) ? (1) : (0))
-# define CHECK_ZERO(X) ((X &= zero) ? (1) : (0))
-# define CHECK_SPACE(X) ((X &= space) ? (1) : (0))
-# define CHECK_H(X) ((X &= h) ? (1) : (0))
-# define CHECK_HH(X) ((X &= hh) ? (1) : (0))
-# define CHECK_L(X) ((X &= l) ? (1) : (0))
-# define CHECK_LL(X) ((X &= ll) ? (1) : (0))
-# define CHECK_Z(X) ((X &= z) ? (1) : (0))
-# define CHECK_J(X) ((X &= j) ? (1) : (0))
-# define CHECK_S(X) ((X &= s) ? (1) : (0)) 
-# define CHECK_SS(X) ((X &= ss) ? (1) : (0))
-# define CHECK_P(X) ((X &= p) ? (1) : (0))
-# define CHECK_D(X) ((X &= d) ? (1) : (0))
-# define CHECK_DD(X) ((X &= dd) ? (1) : (0))
-# define CHECK_I(X) ((X &= i) ? (1) : (0))
-# define CHECK_O(X) ((X &= o) ? (1) : (0))
-# define CHECK_OO(X) ((X &= oo) ? (1) : (0))
-# define CHECK_U(X) ((X &= u) ? (1) : (0))
-# define CHECK_UU(X) ((X &= uu) ? (1) : (0))
-# define CHECK_X(X) ((X &= x) ? (1) : (0))
-# define CHECK_XX(X) ((X &= xx) ? (1) : (0))
-# define CHECK_C(X) ((X &= c)  ? (1) : (0))
-# define CHECK_CC(X) ((X &= cc) ? (1) : (0))
-# define CHECK_PERCENT(X) ((X &= percent) ? (1) : (0))
+# define CHECK_PLUS(X) ((X & plus) ? (1) : (0))
+# define CHECK_MINUS(X) ((X & minus) ? (1) : (0))
+# define CHECK_HASH(X) ((X & hash) ? (1) : (0))
+# define CHECK_ZERO(X) ((X & zero) ? (1) : (0))
+# define CHECK_SPACE(X) ((X & space) ? (1) : (0))
+# define CHECK_H(X) ((X & h) ? (1) : (0))
+# define CHECK_HH(X) ((X & hh) ? (1) : (0))
+# define CHECK_L(X) ((X & l) ? (1) : (0))
+# define CHECK_LL(X) ((X & ll) ? (1) : (0))
+# define CHECK_Z(X) ((X & z) ? (1) : (0))
+# define CHECK_J(X) ((X & j) ? (1) : (0))
+# define CHECK_S(X) ((X & s) ? (1) : (0)) 
+# define CHECK_SS(X) ((X & ss) ? (1) : (0))
+# define CHECK_P(X) ((X & p) ? (1) : (0))
+# define CHECK_D(X) ((X & d) ? (1) : (0))
+# define CHECK_DD(X) ((X & dd) ? (1) : (0))
+# define CHECK_I(X) ((X & i) ? (1) : (0))
+# define CHECK_O(X) ((X & o) ? (1) : (0))
+# define CHECK_OO(X) ((X & oo) ? (1) : (0))
+# define CHECK_U(X) ((X & u) ? (1) : (0))
+# define CHECK_UU(X) ((X & uu) ? (1) : (0))
+# define CHECK_X(X) ((X & x) ? (1) : (0))
+# define CHECK_XX(X) ((X & xx) ? (1) : (0))
+# define CHECK_C(X) ((X & c)  ? (1) : (0))
+# define CHECK_CC(X) ((X & cc) ? (1) : (0))
+# define CHECK_PERCENT(X) ((X & percent) ? (1) : (0))
 
 int		ft_printf(const char *fmt, ...);
 void	main_station(t_components *m);
@@ -162,6 +162,12 @@ void		sign_sign(t_components *m);
 void		print_num(t_components *m);
 void		print_char(t_components *m, char c, int z);
 void		unsign(t_components *m);
+
+
+/*
+** Helpers
+*/
+void print_bits(int n);
 
 
 

@@ -13,10 +13,13 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
+
 int	main()
 {
-	int a;
-	a = ft_printf("f: %s\n", "This is a string");
-	printf("f: %d, d: %d\n", a, printf("p: %s\n", "This is a string"));
+	ft_printf("%s%oBAGEL", "NOAHS", 42);
+	
+	//int a;
+	//a = ft_printf("f: %s %d\n", "This is a string", 42);
+	//printf("f: %d, d: %d\n", a, printf("p: %s %d\n", "This is a string", 42));
 	return (0);
 }
