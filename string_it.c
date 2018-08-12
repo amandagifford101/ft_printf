@@ -23,7 +23,7 @@ static void	print_string(t_components *m)
 {
 	m->spaces = (m->prec != -1 && m->prec < m->len)
 	? (m->prec) : (m->len);
-	ft_strncat(m->buff,  m->arg.s, m->spaces);
+	ft_strncat(m->buff, m->arg.s, m->spaces);
 }
 	
 void	string_it(t_components *m)
@@ -34,7 +34,6 @@ void	string_it(t_components *m)
 		return;
 	}
 	m->arg.s = va_arg(m->args, char*);
-	ft_strcat(m->buff, m->arg.s);
 	if (!m->arg.s && (m->buff = ft_strcat(m->buff, "(null)")))
 		return;
 	m->len = ft_strlen(m->arg.s);
