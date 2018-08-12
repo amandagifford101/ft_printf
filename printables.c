@@ -9,13 +9,15 @@ void	print_num(t_components *m)
 void	print_char(t_components *m, char c, int z)
 {
 	//m->ret += z;
-	char tmp[2];
+	int	j;
+	int	i;
 
-	tmp[0] = c;
-	tmp[1] = '\0';
-	while (z > 0)
+	i = ft_strlen(m->buff);
+	j = 0;
+	while (j < z)
 	{
-		m->buff = ft_strcat(m->buff, tmp);
-		z--;
+		m->buff[i + j] = c;
+		j++;
 	}
+	m->buff[i + j] = '\0';
 }
