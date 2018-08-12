@@ -38,14 +38,14 @@ void	string_it(t_components *m)
 	if (!m->arg.s && write(m->fd, "(NULL)", 6))
 		return;
 	m->len = ft_strlen(m->arg.s);
-	if (CHECK_MINUS(m->flags)) // minus means left alligned
+	if (CHECK_MINUS(m->flags))
 	{
-		print_string(m);
 		print_spaces(m);
+		print_string(m);
 	}
 	else
 	{
-		print_spaces(m);
 		print_string(m);
+		print_spaces(m);
 	}
 }
