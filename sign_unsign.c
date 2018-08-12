@@ -32,10 +32,10 @@ void	unsign(t_components *m)
 
 void	sign_sign(t_components *m)
 {
-	if (CHECK_L(m->flags))
-		m->arg.i = (long)va_arg(m->args, long long int);
-	else if (CHECK_LL(m->flags))
+	if (CHECK_LL(m->flags))
 		m->arg.i = (long long)va_arg(m->args, long long int);
+	else if (CHECK_L(m->flags))
+		m->arg.i = (long)va_arg(m->args, long long int);
 	else if (CHECK_H(m->flags))
 		m->arg.i = (short)va_arg(m->args, long long int);
 	else if (CHECK_HH(m->flags))

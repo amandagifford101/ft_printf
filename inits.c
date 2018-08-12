@@ -16,6 +16,7 @@ void	init(t_components *m, int fd, char *fmt)
 {
 	ft_memset(m, 0, sizeof(t_components));
 	m->buff = ft_strnew(0);
+	m->num = ft_strnew(0);
 	m->prec = -1;
 	m->fd = fd;
 	m->fmt = fmt;

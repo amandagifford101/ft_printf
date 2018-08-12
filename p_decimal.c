@@ -59,6 +59,8 @@ static void		format(t_components *m)
 
 void	p_decimal(t_components *m)
 {
+	if (CHECK_DD(m->flags))
+		ASSIGN_L(m->flags);
 	sign_sign(m);
 	format(m);
 	if (CHECK_MINUS(m->flags))

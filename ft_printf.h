@@ -32,6 +32,7 @@ typedef union
 typedef struct		s_components
 {
 	char 	*fmt;
+	char	*num;
 	char	*buff;
 	va_list	args;
 	t_types	arg; //this is the union, what you pul out of va list
@@ -42,7 +43,6 @@ typedef struct		s_components
 	int		flags;
 	int		width;
 	int		prec;
-	char	*num;
 	int		spaces;
 	int		zeroes;
 	int		len;

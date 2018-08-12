@@ -14,5 +14,8 @@
 
 void	p_pointer(t_components *m)
 {
-	(void)m;
+	m->arg.u = va_arg(m->args, unsigned long int);
+	m->num = ft_uitoa_base(m->arg.u, 16);
+	write(m->fd, "0x", 2);
+	write(m->fd, m->num, ft_strlen(m->num));
 }
