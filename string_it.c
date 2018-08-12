@@ -16,14 +16,14 @@ static void	print_spaces(t_components *m)
 {
 	m->spaces = (m->prec >= 0 && m->prec < m->len)
 	? (m->width - m->prec) : (m->width - m->len);
-	write(m->fd, " ", m->spaces);
+	print_char(m, ' ', m->spaces);
 }
 
 static void	print_string(t_components *m)
 {
 	m->spaces = (m->prec != -1 && m->prec < m->len)
 	? (m->prec) : (m->len);
-	write(m->fd, m->arg.s, m->spaces);
+	ft_strncat(m->buff,  m->arg.s, m->spaces);
 }
 	
 void	string_it(t_components *m)
@@ -35,7 +35,7 @@ void	string_it(t_components *m)
 	}
 	m->arg.s = va_arg(m->args, char*);
 	ft_strcat(m->buff, m->arg.s);
-	if (!m->arg.s && write(m->fd, "(null)", 6))
+	if (!m->arg.s && (m->buff = ft_strcat(m->buff, "(null)")))
 		return;
 	m->len = ft_strlen(m->arg.s);
 	if (CHECK_MINUS(m->flags))
