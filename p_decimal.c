@@ -65,8 +65,8 @@ void	p_decimal(t_components *m)
 	format(m);
 	if (CHECK_MINUS(m->flags))
 	{
-		if (m->sign && !CHECK_ZERO(m->flags) && m->ret++)
-			ft_putchar_fd(m->sign, m->fd);
+		if (CHECK_PLUS(m->flags) && !CHECK_ZERO(m->flags) && m->ret++)
+			print_char(m, m->sign, 1);
 		print_char(m, '0', m->zeroes);
 		print_num(m);
 		print_char(m, ' ', m->spaces);
