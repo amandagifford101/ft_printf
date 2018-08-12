@@ -11,9 +11,11 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	main()
 {
-	ft_printf("%s", "This is a string");
+	ft_printf("f: %s", "This is a string");
+	printf("p: %s", "This is a string");
 	return (0);
 }

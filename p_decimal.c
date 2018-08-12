@@ -41,34 +41,44 @@ char	*ft_itoa_base(long long int value, int base)
 	return (str);
 }
 
-static void	format(t_components *m)
+static void		format(t_components *m)
 {
 	m->num = ft_itoa_base(m->arg.i, 10);
 	m->len = ft_strlen(m->num);
-
-	if (!m->prec && !m->width)
-		print_nbr(m);
-	else if (m->width && m->prec && m->prec > m->width)
-		print_dom(m);
-	else if (m->width && m->prec && m->width > m->prec)
-		print_
+	if (m->prec > m->len)
+		m->zeroes = m->prec - m->len;
+	if (m->width > (m->len + m->zeroes))
+		m->spaces = m->width - (m->len + m->zeroes);
+	if (CHECK_PLUS(m->flags) && !(IS_NEG(m->arg.i)))
+		m->sign = '+';
+	if (CHECK_ZERO(m->flags) && CHECK_PLUS(m->flags))
+		m->spaces--;
+	if (CHECK_SPACE(m->flags) && !(IS_NEG(m->arg.i)) && m->spaces == 0)
+		m->spaces++;
 }
 
 void	p_decimal(t_components *m)
 {
-	sign_sign(m); //in sign_sign and unsign make sure you are completely checking CAP types as well
+	sign_sign(m);
 	format(m);
 	if (CHECK_MINUS(m->flags))
 	{
-		if ((CHECK_PLUS(m->flags) && !m->zero && m->ret++) //double check what you think p->sign represents
+		if (m->sign && !CHECK_ZERO(m->flags) && m->ret++)
+			ft_putchar_fd(m->sign, m->fd);
+		print_char(m, '0', m->zeroes);
+		print_num(m);
+		print_char(m, ' ', m->spaces);
+	}
+	else
+	{
+		if (m->sign && (m->ret++))
 			ft_putchar_fd(m->sign, m->fd);
 		if (m->prec != -1)
-			print_char(m, ' ', m->spaces); //print_char only prints spaces when necessary? sometimes zero?
+			print_char(m, ' ', m->spaces);
 		else
 			(CHECK_ZERO(m->flags)) ? print_char(m, '0', m->spaces)
-								: print_char(m, ' ', m->spaces);
-			print_char(m, '0', p->zeroes);
-			print_num(m);
-		}
+				: print_char(m, ' ', m->spaces);
+		print_char(m, '0', m->zeroes);
+		print_num(m);
 	}
 }

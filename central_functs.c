@@ -30,7 +30,7 @@ void	main_station(t_components *m)
 		if (m->fmt[m->i] == '%')
 		{
 			flag_flipper(m); 
-			print_arg(m);
+		//	print_arg(m);
 		//	re_init(m);
 		//	a -= m->fmt[m->i]; 
 		}
@@ -50,3 +50,5 @@ void	buff_it(t_components *m)
 	m->buff = temp;
 	m->ret++;
 }
+
+

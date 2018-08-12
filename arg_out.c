@@ -31,7 +31,7 @@ void	arg_out(t_components *m)
 		p_hex(m);
 	else if (CHECK_C(m->flags) || CHECK_CC(m->flags))
 		p_char(m);
-	else if (CHECK_PERCENT(X))
-		m->ret = write(p->fd, "%", 1);
+	else if (CHECK_PERCENT(m->flags))
+		m->ret = write(m->fd, "%", 1);
 }
 

@@ -12,8 +12,7 @@
 
 #include "ft_printf.h"
 
-int	p_pointer(t_components *m)
+void	p_pointer(t_components *m)
 {
 	(void)m;
-	return (0);
 }

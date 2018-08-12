@@ -12,15 +12,15 @@
 
 #include "ft_printf.h"
 
+
 void	flag_flipper(t_components *m) // I dont want to send a around unnecc.
 {
 	assign_flags(m); //must move to next spot for all these
-	if (is_digit(m->fmt[m->i]))
+	if (ft_isdigit(m->fmt[m->i]))
 		field_width(m);
 	if (is_prec(m))
 		get_prec(m);
-	if (is_len_mod(m))
-		len_mod(m);
+	len_mod(m);
 	assign_type(m);
 	arg_out(m);
 }
@@ -83,9 +83,9 @@ void	assign_type(t_components *m)
 
 void	field_width(t_components *m)
 {
-	if (is_digit(m->fmt[m->i]))
+	if (ft_isdigit(m->fmt[m->i]))
 		m->width = atoi(m->fmt + m->i);
-	while (is_digit(m->fmt[m->i]))
+	while (ft_isdigit(m->fmt[m->i]))
 		m->i++;
 }
 
@@ -101,9 +101,9 @@ int	is_prec(t_components *m)
 
 void	get_prec(t_components *m)
 {
-	if (is_digit(m->fmt[m->i]))
+	if (ft_isdigit(m->fmt[m->i]))
 		m->prec = atoi(m->fmt + m->i);  //add error check for else (if no digit after '.') ??
-	while (is_digit(m->fmt[m->i]))
+	while (ft_isdigit(m->fmt[m->i]))
 		m->i++;
 }
 

@@ -12,8 +12,7 @@
 
 #include "ft_printf.h"
 
-int	p_hex(t_components *m)
+void	p_hex(t_components *m)
 {
 	(void)m;
-	return (0);
 }

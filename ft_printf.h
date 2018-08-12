@@ -19,10 +19,6 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-
-//add this ABS to libft with ft_itoa_base
-# define ABS(X) (X > 0) ? (X) : (-X)
-# define HEX "0123456789abcdef"
 typedef union
 {
 	char		c;
@@ -49,7 +45,9 @@ typedef struct		s_components
 	int		prec;
 	char	*num;
 	int		spaces;
+	int		zeroes;
 	int		len;
+	char	sign;
 
 }					t_components;
 
@@ -136,7 +134,6 @@ enum flags {
 # define CHECK_C(X) ((X &= c)  ? (1) : (0))
 # define CHECK_CC(X) ((X &= cc) ? (1) : (0))
 # define CHECK_PERCENT(X) ((X &= percent) ? (1) : (0))
-# define IS_NEG(X) ((X = '-') ? (1) : (0))
 
 int		ft_printf(const char *fmt, ...);
 void	main_station(t_components *m);
@@ -144,25 +141,27 @@ void	buff_it(t_components *m);
 void	init(t_components *m, int fd, char *fmt);
 void	arg_out(t_components *m);
 void	print_arg(t_components *m);
-void	assign_flags(t_components *m);
-int		is_digit(int c);
-void	field_width(t_components *m);
-int		is_prec(t_components *m);
-void	get_prec(t_components *m);
-int		is_len_mod(t_components *m);
-void	len_mod(t_components *m);
-void	assign_type(t_components *m);
-void	flag_flipper(t_components *m);
-void 	p_octal(t_components *m);
-void 	string_it(t_components *m);
-void 	p_wide_string(t_components *m);
-void	p_pointer(t_components *m);
-void	p_decimal(t_components *m);
-void    p_undecimal(t_components *m);
-void 	p_hex(t_components *m);
-void 	p_char(t_components *m);
-void	sign_sign(t_components *m);
-
+void		assign_flags(t_components *m);
+int			is_digit(int c);
+void		field_width(t_components *m);
+int			is_prec(t_components *m);
+void		get_prec(t_components *m);
+int			is_len_mod(t_components *m);
+void		len_mod(t_components *m);
+void		assign_type(t_components *m);
+void		flag_flipper(t_components *m);
+void		p_octal(t_components *m);
+void		string_it(t_components *m);
+void		p_wide_string(t_components *m);
+void		p_pointer(t_components *m);
+void		p_decimal(t_components *m);
+void    	p_undecimal(t_components *m);
+void 		p_hex(t_components *m);
+void 		p_char(t_components *m);
+void		sign_sign(t_components *m);
+void		print_num(t_components *m);
+void		print_char(t_components *m, char c, int z);
+void		unsign(t_components *m);
 
 
 

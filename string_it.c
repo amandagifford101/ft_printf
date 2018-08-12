@@ -12,19 +12,18 @@
 
 #include "ft_printf.h"
 
-static void	print_string(t_components *m)
+/*static void	print_string(t_components *m)
 {
 	(void)m;
 }
-	/*m->dom = (m->prec != -1 && m->prec < m->len) ?
+	m->dom = (m->prec != -1 && m->prec < m->len) ?
 		(m->prec) : (m->len);
 	m->ret += write(m->fd, m->arg.s, m->dom);
 }*/
 	
-int	string_it(t_components *m)
+void	string_it(t_components *m)
 {
 	(void)m;
-	return (0);
 }
 
 	/*if (m->l_mod && m->l_mod[0] == 'l')

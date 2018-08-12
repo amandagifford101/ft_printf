@@ -12,8 +12,7 @@
 
 #include "ft_printf.h"
 
-int	p_wide_string(t_components *m)
+void	p_wide_string(t_components *m)
 {
 	(void)m;
-	return (0);
 }
