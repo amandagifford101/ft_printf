@@ -40,12 +40,12 @@ void	string_it(t_components *m)
 	m->len = ft_strlen(m->arg.s);
 	if (CHECK_MINUS(m->flags))
 	{
-		print_spaces(m);
 		print_string(m);
+		print_spaces(m);
 	}
 	else
 	{
-		print_string(m);
 		print_spaces(m);
+		print_string(m);
 	}
 }
