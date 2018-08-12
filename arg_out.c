@@ -14,7 +14,6 @@
 
 void	arg_out(t_components *m)
 {
-	m->i++;
 	if (CHECK_S(m->flags))
 		string_it(m);
 	else if (CHECK_SS(m->flags))

@@ -15,7 +15,8 @@
 
 int	main()
 {
-	ft_printf("f: %s", "This is a string");
-	printf("p: %s", "This is a string");
+	int a;
+	a = ft_printf("f: %s\n", "This is a string");
+	printf("f: %d, d: %d\n", a, printf("p: %s\n", "This is a string"));
 	return (0);
 }

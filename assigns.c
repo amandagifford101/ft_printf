@@ -15,6 +15,7 @@
 
 void	flag_flipper(t_components *m) // I dont want to send a around unnecc.
 {
+	m->i++;
 	assign_flags(m); //must move to next spot for all these
 	if (ft_isdigit(m->fmt[m->i]))
 		field_width(m);
@@ -46,7 +47,6 @@ void	assign_flags(t_components *m)
 
 void	assign_type(t_components *m)
 {
-
 	if (m->fmt[m->i] == 's')
 		ASSIGN_S(m->flags);
 	else if (m->fmt[m->i] == 'S')

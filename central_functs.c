@@ -15,12 +15,13 @@
 int	ft_printf(const char *fmt, ...)
 {
 	t_components m;
-
+	
 	init(&m, 1, (char*)fmt);
 	va_start(m.args, fmt);
 	main_station(&m);
 	va_end(m.args);
-	return (m.ret);
+	ft_putstr(m.buff);
+	return (ft_strlen(m.buff));
 }
 
 void	main_station(t_components *m)
@@ -29,26 +30,14 @@ void	main_station(t_components *m)
 	{
 		if (m->fmt[m->i] == '%')
 		{
+			re_init(m);
 			flag_flipper(m); 
-		//	print_arg(m);
-		//	re_init(m);
-		//	a -= m->fmt[m->i]; 
 		}
 		else
 		{
-			buff_it(m);
-		//	a++;
+			m->buff = ft_strncat(m->buff, m->fmt + m->i, 1); 	
+			m->i++;	
 		}
 	}			
 }
-
-void	buff_it(t_components *m)
-{
-	char *temp;
-	temp = ft_strncat(m->buff, m->fmt, 1); //one char added to m->buff
-	free(m->buff);
-	m->buff = temp;
-	m->ret++;
-}
-
 

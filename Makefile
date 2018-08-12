@@ -33,7 +33,7 @@ clean:
 	rm -f *.o
 
 main: all
-	$(CC) -g $(NAME) main.c -o ft_printf
+	$(CC) -g $(NAME) *.c libft/*.c -o ft_printf
 
 fclean: clean
 	rm -f $(NAME)

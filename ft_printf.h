@@ -39,7 +39,6 @@ typedef struct		s_components
 	int		a; // Is this a solution or locally in funct?
 	int		fd;
 	int		ret;
-	int		diff; //assigned from precison - width; 
 	int		flags;
 	int		width;
 	int		prec;
@@ -139,6 +138,7 @@ int		ft_printf(const char *fmt, ...);
 void	main_station(t_components *m);
 void	buff_it(t_components *m);
 void	init(t_components *m, int fd, char *fmt);
+void	re_init(t_components *m);
 void	arg_out(t_components *m);
 void	print_arg(t_components *m);
 void		assign_flags(t_components *m);

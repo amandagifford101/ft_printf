@@ -23,15 +23,16 @@
 	
 void	string_it(t_components *m)
 {
-	(void)m;
-}
-
-	/*if (m->l_mod && m->l_mod[0] == 'l')
+	if (CHECK_L(m->flags))
 	{
 		p_wide_string(m);
 		return;
 	}
-	m->arg.s = va_arg(m->args, char*); //this is pulling out a char* from va_list and plopping it in your union
+	m->arg.s = va_arg(m->args, char*);
+	ft_strcat(m->buff, m->arg.s);
+}
+ //this is pulling out a char* from va_list and plopping it in your union
+/*
 	if (!m->arg.s && m->ret = write(m->fd, "(NULL)", 6))
 		return;
 	p->str_len = ft_strlen(m->arg.s)

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-char	*ft_itoa_base(long long int value, int base)
+/*char	*ft_itoa_base(long long int value, int base)
 {
 	char *str;
 	unsigned long long int n;
@@ -39,7 +39,7 @@ char	*ft_itoa_base(long long int value, int base)
 	}
 	str[len - 1] = '\0';
 	return (str);
-}
+}*/
 
 static void		format(t_components *m)
 {
