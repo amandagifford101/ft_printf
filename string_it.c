@@ -35,7 +35,7 @@ void	string_it(t_components *m)
 	}
 	m->arg.s = va_arg(m->args, char*);
 	ft_strcat(m->buff, m->arg.s);
-	if (!m->arg.s && write(m->fd, "(NULL)", 6))
+	if (!m->arg.s && write(m->fd, "(null)", 6))
 		return;
 	m->len = ft_strlen(m->arg.s);
 	if (CHECK_MINUS(m->flags))
