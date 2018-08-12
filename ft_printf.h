@@ -134,6 +134,8 @@ enum flags {
 # define CHECK_CC(X) ((X & cc) ? (1) : (0))
 # define CHECK_PERCENT(X) ((X & percent) ? (1) : (0))
 
+# define IS_NEG(X) ((X < 0) ? (1) : (0))
+
 int		ft_printf(const char *fmt, ...);
 void	main_station(t_components *m);
 void	buff_it(t_components *m);
