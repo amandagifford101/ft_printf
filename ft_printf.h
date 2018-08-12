@@ -134,13 +134,13 @@ enum flags {
 # define CHECK_CC(X) ((X & cc) ? (1) : (0))
 # define CHECK_PERCENT(X) ((X & percent) ? (1) : (0))
 
-int		ft_printf(const char *fmt, ...);
-void	main_station(t_components *m);
-void	buff_it(t_components *m);
-void	init(t_components *m, int fd, char *fmt);
-void	re_init(t_components *m);
-void	arg_out(t_components *m);
-void	print_arg(t_components *m);
+int			ft_printf(const char *fmt, ...);
+void		main_station(t_components *m);
+void		buff_it(t_components *m);
+void		init(t_components *m, int fd, char *fmt);
+void		re_init(t_components *m);
+void		arg_out(t_components *m);
+void		print_arg(t_components *m);
 void		assign_flags(t_components *m);
 int			is_digit(int c);
 void		field_width(t_components *m);

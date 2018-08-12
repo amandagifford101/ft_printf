@@ -12,14 +12,19 @@
 
 #include "ft_printf.h"
 
-/*static void	print_string(t_components *m)
+static void	print_spaces(t_components *m)
 {
-	(void)m;
+	m->spaces = (m->prec >= 0 && m->prec < m->len)
+	? (m->width - m->prec) : (m->width - m->len);
+	write(m->fd, " ", m->spaces);
 }
-	m->dom = (m->prec != -1 && m->prec < m->len) ?
-		(m->prec) : (m->len);
-	m->ret += write(m->fd, m->arg.s, m->dom);
-}*/
+
+static void	print_string(t_components *m)
+{
+	m->spaces = (m->prec != -1 && m->prec < m->len)
+	? (m->prec) : (m->len);
+	write(m->fd, m->arg.s, m->spaces);
+}
 	
 void	string_it(t_components *m)
 {
@@ -30,16 +35,13 @@ void	string_it(t_components *m)
 	}
 	m->arg.s = va_arg(m->args, char*);
 	ft_strcat(m->buff, m->arg.s);
-}
- //this is pulling out a char* from va_list and plopping it in your union
-/*
-	if (!m->arg.s && m->ret = write(m->fd, "(NULL)", 6))
+	if (!m->arg.s && write(m->fd, "(NULL)", 6))
 		return;
-	p->str_len = ft_strlen(m->arg.s)
+	m->len = ft_strlen(m->arg.s);
 	if (CHECK_MINUS(m->flags)) // minus means left alligned
 	{
 		print_string(m);
-		print_spaces_(m);
+		print_spaces(m);
 	}
 	else
 	{
@@ -47,5 +49,3 @@ void	string_it(t_components *m)
 		print_string(m);
 	}
 }
-*/
-
