@@ -31,6 +31,6 @@ void	arg_out(t_components *m)
 	else if (CHECK_C(m->flags) || CHECK_CC(m->flags))
 		p_char(m);
 	else if (CHECK_PERCENT(m->flags))
-		m->ret = write(m->fd, "%", 1);
+		print_char(m, '%', 1);
 }
 
