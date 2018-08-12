@@ -43,7 +43,9 @@ SRC =	ft_bzero.c \
 		ft_strsplit.c \
 		ft_lst{add,del,delone,iter,map,new}.c \
 		ft_atoi.c \
-		ft_word_count.c
+		ft_word_count.c \
+		ft_uitoa_base.c \
+		ft_itoa_base.c
 
 OBJ = $(SRC:.c=.o)
 
