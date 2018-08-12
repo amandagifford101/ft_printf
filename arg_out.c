@@ -17,7 +17,7 @@ void	arg_out(t_components *m)
 	if (CHECK_S(m->flags))
 		string_it(m);
 	else if (CHECK_SS(m->flags))
-		p_wide_string(m);
+		p_widestring(m);
 	else if (CHECK_P(m->flags))
 		p_pointer(m);
 	else if (CHECK_D(m->flags) || CHECK_DD(m->flags) || CHECK_I(m->flags))

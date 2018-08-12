@@ -152,7 +152,7 @@ void		assign_type(t_components *m);
 void		flag_flipper(t_components *m);
 void		p_octal(t_components *m);
 void		string_it(t_components *m);
-void		p_wide_string(t_components *m);
+void		p_widestring(t_components *m);
 void		p_pointer(t_components *m);
 void		p_decimal(t_components *m);
 void    	p_undecimal(t_components *m);

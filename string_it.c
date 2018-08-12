@@ -25,7 +25,7 @@ void	string_it(t_components *m)
 {
 	if (CHECK_L(m->flags))
 	{
-		p_wide_string(m);
+		p_widestring(m);
 		return;
 	}
 	m->arg.s = va_arg(m->args, char*);

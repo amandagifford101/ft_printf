@@ -14,7 +14,7 @@ CFILES= arg_out.c \
 	p_pointer.c \
 	p_undecimal.c \
 	printables.c \
-	p_wide_string.c \
+	p_widestring.c \
 	sign_unsign.c \
 	string_it.c 
 
