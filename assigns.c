@@ -6,7 +6,7 @@
 /*   By: agifford <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 13:04:52 by agifford          #+#    #+#             */
-/*   Updated: 2018/08/12 21:06:17 by agifford         ###   ########.fr       */
+/*   Updated: 2018/08/12 21:10:16 by agifford         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,24 @@ void	assign_type(t_components *m)
 		ASSIGN_O(m->flags);
 	else if (m->fmt[m->i] == 'O')
 		ASSIGN_OO(m->flags);
-	else
-	{
-		assign_type2(m);
-		m->i++;
-	}
+	else if (m->fmt[m->i] == 'u')
+		ASSIGN_U(m->flags);
+	else if (m->fmt[m->i] == 'U')
+		ASSIGN_UU(m->flags);
+	else if (m->fmt[m->i] == 'x')
+		ASSIGN_X(m->flags);
+	else if (m->fmt[m->i] == 'X')
+		ASSIGN_XX(m->flags);
+	else if (m->fmt[m->i] == 'c')
+		ASSIGN_C(m->flags);
+	else if (m->fmt[m->i] == 'C')
+		ASSIGN_CC(m->flags);
+	else if (m->fmt[m->i] == '%')
+		ASSIGN_PERCENT(m->flags);
+	m->i++;
+
 }
-void	assign_type2(t_components *m)
+/*void	assign_type2(t_components *m)
 {
 	if (m->fmt[m->i] == 'u')
 		ASSIGN_U(m->flags);
@@ -84,4 +95,4 @@ void	assign_type2(t_components *m)
 		ASSIGN_CC(m->flags);
 	else if (m->fmt[m->i] == '%')
 		ASSIGN_PERCENT(m->flags);
-}
+}*/
