@@ -6,7 +6,7 @@
 /*   By: agifford <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 13:07:30 by agifford          #+#    #+#             */
-/*   Updated: 2018/08/06 20:13:41 by agifford         ###   ########.fr       */
+/*   Updated: 2018/08/12 20:20:26 by agifford         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ void	arg_out(t_components *m)
 	else if (CHECK_PERCENT(m->flags))
 		print_char(m, '%', 1);
 }
-

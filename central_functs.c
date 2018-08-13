@@ -6,16 +6,16 @@
 /*   By: agifford <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 13:10:43 by agifford          #+#    #+#             */
-/*   Updated: 2018/08/07 14:34:37 by agifford         ###   ########.fr       */
+/*   Updated: 2018/08/12 20:44:20 by agifford         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *fmt, ...)
+int		ft_printf(const char *fmt, ...)
 {
 	t_components m;
-	
+
 	init(&m, 1, (char*)fmt);
 	va_start(m.args, fmt);
 	main_station(&m);
@@ -32,13 +32,12 @@ void	main_station(t_components *m)
 		if (m->fmt[m->i] == '%')
 		{
 			re_init(m);
-			flag_flipper(m); 
+			flag_flipper(m);
 		}
 		else
 		{
-			m->buff = ft_strncat(m->buff, m->fmt + m->i, 1); 	
-			m->i++;	
+			m->buff = ft_strncat(m->buff, m->fmt + m->i, 1);
+			m->i++;
 		}
-	}			
+	}	
 }
-

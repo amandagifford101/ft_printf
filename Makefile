@@ -16,7 +16,8 @@ CFILES= arg_out.c \
 	printables.c \
 	p_widestring.c \
 	sign_unsign.c \
-	string_it.c 
+	string_it.c \
+	assigns2.c	
 
 LIBFT=./libft
 

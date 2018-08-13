@@ -6,7 +6,7 @@
 /*   By: agifford <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 16:38:55 by agifford          #+#    #+#             */
-/*   Updated: 2018/08/09 21:35:35 by agifford         ###   ########.fr       */
+/*   Updated: 2018/08/12 20:56:57 by agifford         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,37 @@
 
 typedef union
 {
-	char		c;
-	char		*s;
-	wchar_t		*w;
-	intmax_t 	i;
-	uintmax_t	u;
-	void		*v;
-}				t_types;
+	char			c;
+	char			*s;
+	wchar_t			*w;
+	intmax_t		i;
+	uintmax_t		u;
+	void			*v;
+}					t_types;
 
 typedef struct		s_components
 {
-	char 	*fmt;
-	char	*num;
-	char	*buff;
-	va_list	args;
-	t_types	arg; //this is the union, what you pul out of va list
-	int		i;
-	int		a; // Is this a solution or locally in funct?
-	int		fd;
-	int		ret;
-	int		flags;
-	int		width;
-	int		prec;
-	int		spaces;
-	int		zeroes;
-	int		len;
-	char	sign;
+	char			*fmt;
+	char			*num;
+	char			*buff;
+	va_list			args;
+	t_types			arg;
+	int				i;
+	int				a;
+	int				fd;
+	int				ret;
+	int				flags;
+	int				width;
+	int				prec;
+	int				spaces;
+	int				zeroes;
+	int				len;
+	char			sign;
 
 }					t_components;
 
-enum flags {
+enum	flags 
+{
 	plus = 1,
 	minus = 1 << 1,
 	hash = 1 << 2,
@@ -106,7 +107,6 @@ enum flags {
 # define ASSIGN_CC(X) (X |= cc)
 # define ASSIGN_PERCENT(X) (X |= percent)
 
-
 # define CHECK_PLUS(X) ((X & plus) ? (1) : (0))
 # define CHECK_MINUS(X) ((X & minus) ? (1) : (0))
 # define CHECK_HASH(X) ((X & hash) ? (1) : (0))
@@ -118,7 +118,7 @@ enum flags {
 # define CHECK_LL(X) ((X & ll) ? (1) : (0))
 # define CHECK_Z(X) ((X & z) ? (1) : (0))
 # define CHECK_J(X) ((X & j) ? (1) : (0))
-# define CHECK_S(X) ((X & s) ? (1) : (0)) 
+# define CHECK_S(X) ((X & s) ? (1) : (0))
 # define CHECK_SS(X) ((X & ss) ? (1) : (0))
 # define CHECK_P(X) ((X & p) ? (1) : (0))
 # define CHECK_D(X) ((X & d) ? (1) : (0))
@@ -149,26 +149,19 @@ void		get_prec(t_components *m);
 int			is_len_mod(t_components *m);
 void		len_mod(t_components *m);
 void		assign_type(t_components *m);
+void		assign_type2(t_components *m);
 void		flag_flipper(t_components *m);
 void		p_octal(t_components *m);
 void		string_it(t_components *m);
 void		p_widestring(t_components *m);
 void		p_pointer(t_components *m);
 void		p_decimal(t_components *m);
-void    	p_undecimal(t_components *m);
-void 		p_hex(t_components *m);
-void 		p_char(t_components *m);
+void		p_undecimal(t_components *m);
+void		p_hex(t_components *m);
+void		p_char(t_components *m);
 void		sign_sign(t_components *m);
 void		print_num(t_components *m);
 void		print_char(t_components *m, char c, int z);
 void		unsign(t_components *m);
-
-
-/*
-** Helpers
-*/
-void print_bits(int n);
-
-
 
 #endif
