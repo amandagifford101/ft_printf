@@ -6,7 +6,7 @@
 /*   By: agifford <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 16:38:55 by agifford          #+#    #+#             */
-/*   Updated: 2018/08/12 20:56:57 by agifford         ###   ########.fr       */
+/*   Updated: 2018/08/12 21:30:14 by agifford         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@
 
 typedef union
 {
-	char			c;
-	char			*s;
-	wchar_t			*w;
-	intmax_t		i;
-	uintmax_t		u;
-	void			*v;
-}					t_types;
+	char		c;
+	char		*s;
+	wchar_t		*w;
+	intmax_t	i;
+	uintmax_t	u;
+	void		*v;
+}						t_types;
 
-typedef struct		s_components
+typedef struct	s_components
 {
 	char			*fmt;
 	char			*num;
@@ -47,8 +47,7 @@ typedef struct		s_components
 	int				zeroes;
 	int				len;
 	char			sign;
-
-}					t_components;
+}						t_components;
 
 enum	flags 
 {

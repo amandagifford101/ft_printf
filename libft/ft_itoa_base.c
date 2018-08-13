@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agifford <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/12 21:20:10 by agifford          #+#    #+#             */
+/*   Updated: 2018/08/12 21:35:49 by agifford         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_itoa_base(long long int value, int base)
+char			*ft_itoa_base(long long int value, int base)
 {
-	unsigned long long int	n;
-	char					*ret;
-	int						len;
-	int						i;
+	uint64_t	n;
+	char		*ret;
+	int			len;
+	int			i;
 
 	n = ABS(value);
 	len = 1;
