@@ -19,17 +19,16 @@
 
 int	main()
 {
-	char	t[4];
+	
+	/*char	t[4];
 
 	t[0] = '1';
 	t[1] = '\0';
 	t[2] = '2';
 	t[3] = '\n';
 	write(1, t, 4);
-	
-	ft_printf("f:%c\n", -0);
-
-	printf("p:%c\n", -0);
+	i*/
+	printf("%d:%d\n", ft_printf("f:%c\n", -0), printf("p:%c\n", -0));
 
 	/*unsigned short r = (short)~0U>>1;
 	unsigned long long aa = -r - 1;

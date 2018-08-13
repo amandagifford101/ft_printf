@@ -21,7 +21,8 @@ int	ft_printf(const char *fmt, ...)
 	main_station(&m);
 	va_end(m.args);
 	ft_putstr(m.buff);
-	return (ft_strlen(m.buff));
+	m.ret += ft_strlen(m.buff);
+	return (m.ret);
 }
 
 void	main_station(t_components *m)

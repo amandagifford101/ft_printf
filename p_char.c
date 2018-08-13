@@ -8,7 +8,8 @@ void	null_print(t_components *m)
 	if (m->arg.c == '\0')
 	{
 		ft_putstr(m->buff);
-		write(1, &t, 1);
+		m->ret += ft_strlen(m->buff);
+		m->ret += write(1, &t, 1);
 		m->buff = ft_strnew(0);
 	}	
 	else
