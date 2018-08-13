@@ -6,7 +6,7 @@
 /*   By: agifford <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 13:04:52 by agifford          #+#    #+#             */
-/*   Updated: 2018/08/12 20:57:02 by agifford         ###   ########.fr       */
+/*   Updated: 2018/08/12 21:06:17 by agifford         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,27 @@ void	assign_flags(t_components *m)
 
 void	assign_type(t_components *m)
 {
-	if (m->fmt[m->i++] == 's')
+	if (m->fmt[m->i] == 's')
 		ASSIGN_S(m->flags);
-	else if (m->fmt[m->i++] == 'S')
+	else if (m->fmt[m->i] == 'S')
 		ASSIGN_SS(m->flags);
-	else if (m->fmt[m->i++] == 'p')
+	else if (m->fmt[m->i] == 'p')
 		ASSIGN_P(m->flags);
-	else if (m->fmt[m->i++] == 'd')
+	else if (m->fmt[m->i] == 'd')
 		ASSIGN_D(m->flags);
-	else if (m->fmt[m->i++] == 'D')
+	else if (m->fmt[m->i] == 'D')
 		ASSIGN_DD(m->flags);
-	else if (m->fmt[m->i++] == 'i')
+	else if (m->fmt[m->i] == 'i')
 		ASSIGN_I(m->flags);
-	else if (m->fmt[m->i++] == 'o')
+	else if (m->fmt[m->i] == 'o')
 		ASSIGN_O(m->flags);
-	else if (m->fmt[m->i++] == 'O')
+	else if (m->fmt[m->i] == 'O')
 		ASSIGN_OO(m->flags);
 	else
+	{
 		assign_type2(m);
+		m->i++;
+	}
 }
 void	assign_type2(t_components *m)
 {
@@ -81,5 +84,4 @@ void	assign_type2(t_components *m)
 		ASSIGN_CC(m->flags);
 	else if (m->fmt[m->i] == '%')
 		ASSIGN_PERCENT(m->flags);
-	m->i++;
 }
