@@ -1,42 +1,37 @@
-NAME= libftprintf.a
-CC= gcc
-CFLAGS= -Wall -Wextra -Werror
+NAME = ft_printf
 
-CFILES= arg_out.c \
-	assigns.c \
-	central_functs.c \
-	inits.c \
-	main.c \
-	p_char.c \
-	p_decimal.c \
-	p_hex.c \
-	p_octal.c \
-	p_pointer.c \
-	p_undecimal.c \
-	printables.c \
-	p_widestring.c \
-	sign_unsign.c \
-	string_it.c \
-	assigns2.c	
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+FILES = arg_out.c assigns.c assigns2.c central_functs.c inits.c \
+		p_char.c p_decimal.c p_hex.c p_octal.c p_pointer.c p_undecimal.c \
+		p_widestring.c printables.c sign_unsign.c string_it.c 
 
-LIBFT=./libft
+SRC = $(addprefix src/, $(FILES))
+OBJ = $(addprefix obj/, $(FILES:.c=.o))
+
+LIBFT = -I libs/libft -L libs/libft -lft
+LIBS = $(LIBFT)
 
 all: $(NAME)
 
-$(NAME):
-	make -C libft
-	$(CC) $(CFLAGS) -c $(CFILES)
-	ar -x libft/libft.a
-	ar -rc $(NAME) *.o
-	ranlib $(NAME)
+$(NAME): -lft $(OBJ)
+	$(CC) $(CFLAGS) $(LIBS) -I includes $(OBJ) -o $@
+
+obj:
+	mkdir obj
+
+obj/%.o: src/%.c | obj
+	$(CC) $(CFLAGS) -I libs/libft -I includes -c $< -o $@
+
+-lft:
+	$(MAKE) -C libs/libft #re
 
 clean:
-	rm -f *.o
-
-main: all
-	$(CC) -g $(NAME) *.c libft/*.c -o ft_printf
+	$(MAKE) -C libs/libft clean
+	/bin/rm -rf obj
 
 fclean: clean
-	rm -f $(NAME)
+	$(MAKE) -C libs/libft fclean
+	/bin/rm -f $(NAME)
 
 re: fclean all
